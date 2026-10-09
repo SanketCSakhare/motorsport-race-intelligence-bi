@@ -29,7 +29,7 @@ streamlit run app.py
 
 On macOS/Linux use `source .venv/bin/activate`. The dashboard URL is printed by Streamlit, normally `http://localhost:8501`.
 
-To publish on GitHub, extract the supplied ZIP, open a terminal in `silverstone-motorsport-bi`, create an empty GitHub repository, then run `git init`, `git add .`, `git commit -m "Add motorsport BI portfolio project"`, `git branch -M main`, `git remote add origin <your-repository-url>`, and `git push -u origin main`. The included `.gitignore` keeps the 73 MB raw source database out of Git; the compact finished mart and CSVs are committed for immediate review.
+The included `.gitignore` keeps the 73 MB raw source database out of Git; the compact finished mart and CSVs are committed for immediate review.
 
 To rebuild from a previously downloaded source file:
 
