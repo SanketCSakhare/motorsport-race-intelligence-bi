@@ -1,0 +1,22 @@
+{
+  "source": "https://github.com/f1db/f1db/releases/download/v2026.16.1/f1db-sqlite.zip",
+  "source_version": "v2026.16.1",
+  "archive_sha256": "1cf00790b2e334d71a69da4b9b0738feef1e3a15262e661389bf803dd97a0f4d",
+  "source_sha256": "34833665569225e1f3182909b9880665a728d3b49f99705be2eae9046345b60d",
+  "years": [
+    2015,
+    2025
+  ],
+  "built_at_utc": "2026-10-09T17:20:50.454355+00:00",
+  "quality_checks": {
+    "races": 233,
+    "results": 4701,
+    "drivers": 56,
+    "constructors": 21,
+    "circuits": 32,
+    "duplicate_result_keys": 0,
+    "orphan_results": 0,
+    "invalid_points": 0,
+    "future_races": 0
+  }
+}

@@ -1,0 +1,26 @@
+// Create these measures in the fact_result table after loading the five CSVs.
+// Set relationships: fact_result[race_id] -> dim_race[race_id],
+// fact_result[driver_id] -> dim_driver[driver_id],
+// fact_result[constructor_id] -> dim_constructor[constructor_id],
+// dim_race[circuit_id] -> dim_circuit[circuit_id]. All single-direction many-to-one.
+
+Race Starts = COUNTROWS(fact_result)
+Grand Prix Races = DISTINCTCOUNT(dim_race[race_id])
+Race Points = SUM(fact_result[points])
+Wins = CALCULATE([Race Starts], fact_result[finish_position] = 1)
+Podiums = CALCULATE([Race Starts], fact_result[finish_position] >= 1, fact_result[finish_position] <= 3)
+Retirements = CALCULATE([Race Starts], NOT ISBLANK(fact_result[retirement_reason]))
+Retirement Rate = DIVIDE([Retirements], [Race Starts])
+Average Grid Position = AVERAGE(fact_result[grid_position])
+Average Finish Position = AVERAGE(fact_result[finish_position])
+Positions Gained =
+SUMX(
+    FILTER(fact_result, NOT ISBLANK(fact_result[grid_position]) && NOT ISBLANK(fact_result[finish_position])),
+    fact_result[grid_position] - fact_result[finish_position]
+)
+Average Positions Gained =
+DIVIDE(
+    [Positions Gained],
+    COUNTROWS(FILTER(fact_result, NOT ISBLANK(fact_result[grid_position]) && NOT ISBLANK(fact_result[finish_position])))
+)
+
